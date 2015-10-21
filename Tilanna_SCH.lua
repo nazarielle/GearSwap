@@ -51,18 +51,18 @@ function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Refresh')
     state.CastingMode:options('Normal', 'MidMacc', 'MaxMacc', 'MP', 'Proc')
     state.IdleMode:options('Normal', 'PDT', 'MDT')
-	
+    
     state.MagicBurst = M(false, 'Magic Burst')
-	
+    
     info.low_nukes = S{"Stone", "Water", "Aero", "Fire", "Blizzard", "Thunder"}
     info.mid_nukes = S{"Stone II", "Water II", "Aero II", "Fire II", "Blizzard II", "Thunder II",
                        "Stone III", "Water III", "Aero III", "Fire III", "Blizzard III", "Thunder III",
                        "Stone IV", "Water IV", "Aero IV", "Fire IV", "Blizzard IV", "Thunder IV",}
     info.high_nukes = S{"Stone V", "Water V", "Aero V", "Fire V", "Blizzard V", "Thunder V"}
-	
+    
     gear.default.obi_waist = "Aswang Sash"
     gear.default.obi_back = "Bookworm's Cape"
-	
+    
     select_default_macro_book()
 end
 
@@ -81,9 +81,9 @@ function init_gear_sets()
     ----------------------------------------- Precast Sets -----------------------------------------
     ------------------------------------------------------------------------------------------------
     -- Precast Sets
-	
+    
     -- Precast sets to enhance JAs
-	
+    
     sets.precast.JA['Tabula Rasa'] = {
         legs="Pedagogy Pants"
     }
@@ -91,9 +91,9 @@ function init_gear_sets()
     sets.precast.JA['Enlightenment'] = {
         body="Pedagogy Gown +1"
     }
-	
+    
     -- Fast cast sets for spells
-	
+    
     sets.precast.FC = {
         main="Keraunos", -- 4%
         ammo="Impatiens",
@@ -108,32 +108,32 @@ function init_gear_sets()
         legs="Orvail Pants +1", -- 5%
         feet="Pedagogy Loafers +1", -- 6%
     }
-	
+    
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {
         --waist="Siegel Sash"
     })
-	
-	sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
-		head="Umuthi Hat",
+    
+    sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {
+        head="Umuthi Hat",
     })
-	
+    
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {
         neck="Stoicheion Medal",
         ear1="Barkarole Earring",
     })
-	
+    
     sets.precast.FC.Cure = set_combine(sets.precast.FC, {
         --body="Heka's Kalasiris",
         back="Pahtli Cape"
     })
-	
+    
     sets.precast.FC.Curaga = sets.precast.FC.Cure
-	
+    
     sets.precast.FC.Impact = set_combine(sets.precast.FC['Elemental Magic'], {
         head=empty,
         body="Twilight Cloak"
     })
-	
+    
     sets.precast.WS = {
         ammo="Witchstone",
         head="Telchine Cap",
@@ -149,8 +149,8 @@ function init_gear_sets()
         ring2="Rajas Ring",
         back="Umbra Cape"
     }
-	
-	sets.precast.WS['Omniscience'] = {
+    
+    sets.precast.WS['Omniscience'] = {
         ammo="Witchstone",
         head="Helios Band",
         body="Arbatel Gown",
@@ -181,13 +181,13 @@ function init_gear_sets()
         legs="Pedagogy Pants",
         feet="Arbatel Loafers +1",
     }
-	
+    
     ------------------------------------------------------------------------------------------------
     ----------------------------------------- Midcast Sets -----------------------------------------
     ------------------------------------------------------------------------------------------------
-	
+    
     sets.midcast.FastRecast = sets.precast.FC
-	
+    
     sets.midcast.Cure = {
         head="Gendewitha Caubeen +1", -- 10%
         neck="Colossus's Torque", -- 7
@@ -204,17 +204,17 @@ function init_gear_sets()
         back="Tempered Cape +1", -- 6%
         waist="Bishop's Sash", -- 5
         ear1="Beatific Earring", -- 4
-		ear2="Lifestorm Earring",
+        ear2="Lifestorm Earring",
         ring1="Haoma's Ring", -- 8
         ring2="Sirona's Ring", -- 10
     }
-	
+    
     sets.midcast.CureWithLightWeather = set_combine(sets.midcast.Cure, {
         main="Chatoyant Staff",
     })
-	
+    
     sets.midcast.Curaga = sets.midcast.Cure
-	
+    
     sets.midcast.Regen = {
         head="Arbatel Bonnet",
         body="Telchine Chasuble",
@@ -237,7 +237,7 @@ function init_gear_sets()
         ring1="Haoma's Ring",
         ring2="Sirona's Ring",
     }
-	
+    
     sets.midcast.Cursna = {
         neck="Malison Medallion",
         legs="Academic's Pants +1",
@@ -248,9 +248,9 @@ function init_gear_sets()
         ring1="Haoma's Ring",
         ring2="Haoma's Ring",
     }
-	
+    
     sets.midcast['Enhancing Magic'] = {
-		main="Keraunos",
+        main="Keraunos",
         sub="Fulcio Grip",
         --ammo="Savant's Treatise",
         neck="Colossus's Torque",
@@ -260,28 +260,28 @@ function init_gear_sets()
         back="Merciful Cape",
         waist="Olympus Sash",
         ear1="Augmenting Earring",
-		ear2="Andoaa Earring",
+        ear2="Andoaa Earring",
     }
-	
+    
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {
         ear1="Earthcry Earring",
         legs="Haven Hose"
     })
-	
+    
     sets.midcast.Storm = set_combine(sets.midcast['Enhancing Magic'], {
         feet="Pedagogy Loafers +1",
     })
-	
+    
     sets.midcast.Protect = {
         ring2="Sheltered Ring",
     }
     sets.midcast.Protectra = sets.midcast.Protect
-	
+    
     sets.midcast.Shell = {
         ring2="Sheltered Ring",
     }
     sets.midcast.Shellra = sets.midcast.Shell
-	
+    
     -- Custom spell classes
     sets.midcast.MndEnfeebles = {
         main="Lehbrailg +2",
@@ -306,7 +306,7 @@ function init_gear_sets()
     })
     
     sets.midcast.ElementalEnfeeble = sets.midcast.IntEnfeebles
-	
+    
     sets.midcast['Dark Magic'] = {
         main="Lehbrailg +2",
         sub="Mephitis Grip",
@@ -324,7 +324,7 @@ function init_gear_sets()
         ring2="Perception Ring",
         back="Bookworm's Cape"
     }
-	
+    
     sets.midcast.Kaustra = {
         main="Keraunos",
         sub="Wizzan Grip",
@@ -347,9 +347,9 @@ function init_gear_sets()
         waist="Fucho-no-Obi",
         ring2="Excelsis Ring",
     })
-	
+    
     sets.midcast.Aspir = sets.midcast.Drain
-	
+    
     sets.midcast.Stun = {
         main="Lehbrailg +2",
         sub="Mephitis Grip",
@@ -367,7 +367,7 @@ function init_gear_sets()
         ring2="Perception Ring",
         back="Bookworm's Cape"
     }
-	
+    
     -- Elemental Magic sets are default for handling low-tier nukes.
     sets.midcast['Elemental Magic'] = {
         main="Keraunos",
@@ -386,25 +386,25 @@ function init_gear_sets()
         ring2="Acumen Ring",
         back=gear.default.obi_back
     }
-	
-	sets.midcast['Elemental Magic'].MidMacc = set_combine(sets.midcast['Elemental Magic'], {
+    
+    sets.midcast['Elemental Magic'].MidMacc = set_combine(sets.midcast['Elemental Magic'], {
         sub="Wizzan Grip",
-		ring1="Weatherspoon Ring",
+        ring1="Weatherspoon Ring",
     })
-	
-	sets.midcast['Elemental Magic'].MaxMacc = set_combine(sets.midcast['Elemental Magic'], {
+    
+    sets.midcast['Elemental Magic'].MaxMacc = set_combine(sets.midcast['Elemental Magic'], {
         sub="Wizzan Grip",
-		hands="Hagondes Cuffs +1",
-		ring1="Weatherspoon Ring",
-		ring2="Perception Ring",
+        hands="Hagondes Cuffs +1",
+        ring1="Weatherspoon Ring",
+        ring2="Perception Ring",
     })
-	
+    
     sets.midcast['Elemental Magic'].MP = set_combine(sets.midcast['Elemental Magic'], {
         sub="Wizzan Grip",
         --body="Seidr Cotehardie",
-		ring1="Weatherspoon Ring",
+        ring1="Weatherspoon Ring",
     })
-	
+    
     sets.midcast.Impact = set_combine(sets.midcast['Elemental Magic'], {
         head=empty,
         body="Twilight Cloak"
@@ -421,11 +421,11 @@ function init_gear_sets()
     sets.midcast.Helix.MaxMacc = set_combine(sets.midcast['Elemental Magic'].MaxMacc, {
         waist=gear.default.obi_waist
     })
-	
+    
     ------------------------------------------------------------------------------------------------
     ------------------------------------------ Idle Sets -------------------------------------------
     ------------------------------------------------------------------------------------------------
-	
+    
     sets.idle = {
         main="Bolelabunga",
         sub="Genbu's Shield",
@@ -447,11 +447,11 @@ function init_gear_sets()
     sets.resting = set_combine(sets.idle, {
         main="Chatoyant Staff"
     })
-	
+    
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Defense Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
-	
+    
     sets.defense.PDT = {
         main="Earth Staff",
         sub="Wizzan Grip",
@@ -469,7 +469,7 @@ function init_gear_sets()
         ring2="Sheltered Ring",
         back="Umbra Cape"
     }
-	
+    
     sets.defense.MDT = {
         main="Bolelabunga",
         sub="Genbu's Shield",
@@ -487,19 +487,19 @@ function init_gear_sets()
         ring2="Sheltered Ring",
         back="Umbra Cape"
     }
-	
+    
     sets.Kiting = {
         feet="Herald's Gaiters"
     }
-	
+    
     sets.latent_refresh = {
         waist="Fucho-no-obi"
     }
-	
+    
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Engaged Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
-	
+    
     sets.engaged = {
         head="Telchine Cap",
         body="Vanya Robe",
@@ -513,25 +513,25 @@ function init_gear_sets()
         ring1="Enlivened Ring",
         ring2="Rajas Ring",
         back="Umbra Cape"
-	}
+    }
     
     sets.engaged.Refresh = sets.idle
-	
+    
     ------------------------------------------------------------------------------------------------
     ---------------------------------------- Special Sets ------------------------------------------
     ------------------------------------------------------------------------------------------------
-	
+    
     sets.magic_burst = {
         neck="Mizukage-no-Kubikazari",
         back="Seshaw Cape",
         ring1="Locus Ring",
         ring2="Mujin Band",
     }
-	
+    
     sets.buff['Ebullience'] = {
         head="Arbatel Bonnet"
     }
-	
+    
     sets.buff['Rapture'] = {
         head="Arbatel Bonnet"
     }
@@ -559,11 +559,11 @@ function init_gear_sets()
     sets.buff['Alacrity'] = {
         feet="Pedagogy Loafers +1"
     }
-	
+    
     sets.buff['Klimaform'] = {
         feet="Arbatel Loafers +1"
     }
-	
+    
     sets.buff.FullSublimation = {
         head="Academic's Mortarboard +1",
         --ear1="Savant's Earring",
@@ -694,7 +694,7 @@ function job_self_command(cmdParams, eventArgs)
     if cmdParams[1]:lower() == 'scholar' then
         handle_strategems(cmdParams)
         eventArgs.handled = true
-	elseif cmdParams[1]:lower() == 'nuke' then
+    elseif cmdParams[1]:lower() == 'nuke' then
         handle_nuking(cmdParams)
         eventArgs.handled = true
     end

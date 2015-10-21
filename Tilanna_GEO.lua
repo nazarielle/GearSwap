@@ -142,17 +142,17 @@ function init_gear_sets()
 
     sets.midcast.Geomancy = {
         range="Dunna",
-		body="Bagua Tunic",
-		hands="Geomancy Mitaines",
-		back="Lifestream Cape",
+        body="Bagua Tunic",
+        hands="Geomancy Mitaines",
+        back="Lifestream Cape",
     }
     
     sets.midcast.Geomancy.Indi = {
         range="Dunna",
-		body="Bagua Tunic",
-		hands="Geomancy Mitaines",
+        body="Bagua Tunic",
+        hands="Geomancy Mitaines",
         --legs="Bagua Pants"
-		back="Lifestream Cape",
+        back="Lifestream Cape",
     }
 
     sets.midcast.Cure = {
@@ -409,7 +409,7 @@ function init_gear_sets()
         ring1="Enlivened Ring",
         ring2="Rajas Ring",
         back="Umbra Cape"
-	}
+    }
     
     sets.engaged.Refresh = sets.idle
 
