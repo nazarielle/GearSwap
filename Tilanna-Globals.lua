@@ -7,7 +7,7 @@ sets.reive = {neck="Arciela's Grace +1"}
 
 elements.nuke_of = {
 	['Light']="Banish",
-	['Dark']="Death",
+	['Dark']="Comet",
 	['Fire']="Fire",
 	['Earth']="Stone",
 	['Water']="Water",
