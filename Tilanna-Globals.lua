@@ -3,6 +3,32 @@
 -- This is for personal globals, as opposed to library globals.
 -------------------------------------------------------------------------------------------------------------------
 
+--[[
+    Custom commands:
+    
+    gs c nuke #
+        Casts a nuke of the given tier
+        example: gs c nuke 3
+        Will cast a tier 3 nuke of the current NukeType (Blizzard III, Aero III, etc)
+    
+    gs c nuke # ga/ja/ra/helix/am
+        Casts a nuke of the given tier of a -ga, -ja, -ra, helix, or Ancient Magic spell.
+        example: gs c nuke 2 ra
+        Will cast a tier 2 nuke of the current NukeType using the -ra spells (Blizzara II, Fira II, etc)
+    
+    Configuration commands:
+    
+    gs c cycle nuketype
+        Cycles through the available nuke element to use as the primary nuke when using one of the above commands.
+        
+    gs c set nuketype Ice
+        Set NukeType to the specified element (in this case, Ice)
+    
+    To use these in macros, make sure to use /console before the command (can be shortened to /cons),
+    e.g. /console gs c nuke 6
+    
+--]]
+
 sets.reive = {neck="Arciela's Grace +1"}
 
 elements.nuke_of = {

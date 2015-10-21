@@ -2,20 +2,6 @@
 -- Setup functions for this job.  Generally should not be modified.
 -------------------------------------------------------------------------------------------------------------------
 
---[[
-    Custom commands:
-    
-    gs c nuke <#>
-        
-    
-    
-    Configuration commands:
-    
-    gs c cycle nuketype
-        Cycles through the available nuke element to use as the primary nuke when using one of the above commands.
-    
---]]
-
 -- Initialization function for this job file.
 function get_sets()
     mote_include_version = 2
