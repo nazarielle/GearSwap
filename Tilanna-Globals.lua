@@ -16,7 +16,9 @@
         example: gs c nuke 2 ra
         Will cast a tier 2 nuke of the current NukeType using the -ra spells (Blizzara II, Fira II, etc)
     
+    
     Configuration commands:
+    
     
     gs c cycle nuketype
         Cycles through the available nuke element to use as the primary nuke when using one of the above commands.
@@ -90,6 +92,48 @@ elements.ancientmagic_of = {
     ['Lightning']="Burst"
 }
 
+-- map new spells that aren't in Mote's library, so that they don't get erased if the library is redownloaded and overwritten
+
+classes.SpellMaps['Pyrohelix II']='Helix'
+classes.SpellMaps['Cryohelix II']='Helix'
+classes.SpellMaps['Anemohelix II']='Helix'
+classes.SpellMaps['Geohelix II']='Helix'
+classes.SpellMaps['Ionohelix II']='Helix'
+classes.SpellMaps['Hydrohelix II']='Helix'
+classes.SpellMaps['Luminohelix II']='Helix'
+classes.SpellMaps['Noctohelix II']='Helix'
+classes.SpellMaps['Firestorm II']='Storm'
+classes.SpellMaps['Hailstorm II']='Storm'
+classes.SpellMaps['Windstorm II']='Storm'
+classes.SpellMaps['Sandstorm II']='Storm'
+classes.SpellMaps['Thunderstorm II']='Storm'
+classes.SpellMaps['Rainstorm II']='Storm'
+classes.SpellMaps['Aurorastorm II']='Storm'
+classes.SpellMaps['Voidstorm II']='Storm'
+classes.SpellMaps['Utsusemi: San']='Utsusemi'
+classes.SpellMaps['Aspir III']='Aspir'
+
+classes.NoSkillSpells = S{
+    'Haste',
+    'Flurry',
+    'Refresh',
+    'Regen',
+    'Protect',
+    'Protectra',
+    'Shell',
+    'Shellra',
+    'Raise',
+    'Reraise',
+    'Sneak',
+    'Invisible',
+    'Deodorize',
+    'Aquaveil',
+    'Blink',
+    'Adloquium',
+    'Animus Augeo',
+    'Animus Minuo'
+}
+
 -- Global intercept on midcast.
 function user_post_midcast(spell, action, spellMap, eventArgs)
     if buffactive['Reive Mark'] and (spell.skill == 'Elemental Magic' or spellMap == 'Cure' or spellMap == 'Curaga') then
@@ -118,7 +162,8 @@ end
 function handle_nuking(cmdParams)
     -- cmdParams[1] = nuke
     -- cmdParams[2] = number (tier of nuke)
-    -- cmdParams[3] = ga, ja, ra for AoE, helix for helix, or am for ancient magic
+    -- cmdParams[3] = ga, ja, ra for AoE, helix for helix, or am for ancient magic (or recast)
+    -- cmdParams[4] = recast
     
     local fullSpell = ""
     local spellName = ""
@@ -176,6 +221,10 @@ function handle_nuking(cmdParams)
         fullSpell = spellName.." "..spellTier
     else
         fullSpell = spellName
+    end
+    
+    if cmdParams[3] == "recast" or cmdParams[4] == "recast" then
+        send_command('@input /recast "'..fullSpell..'"')
     end
     
     send_command('@input /ma "'..fullSpell..'" <t>')
